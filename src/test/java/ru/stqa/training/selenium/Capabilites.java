@@ -1,8 +1,8 @@
 package ru.stqa.training.selenium;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,7 +16,7 @@ public class Capabilites {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @Before
+    @BeforeEach
     public void start(){
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("unexpectedAlertBehaviour", "dismiss");
@@ -30,7 +30,7 @@ public class Capabilites {
      //   driver.get("https://www.germanpersonnel.de/");
     }
 
-    @After
+    @AfterEach
     public void stop(){
         driver.quit();
         driver = null;

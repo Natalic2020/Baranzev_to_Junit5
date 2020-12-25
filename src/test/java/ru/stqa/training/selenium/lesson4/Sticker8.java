@@ -1,13 +1,13 @@
 package ru.stqa.training.selenium.lesson4;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import ru.stqa.training.selenium.TestBaseImplicitlyWait;
 
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Sticker8 extends TestBaseImplicitlyWait {
 

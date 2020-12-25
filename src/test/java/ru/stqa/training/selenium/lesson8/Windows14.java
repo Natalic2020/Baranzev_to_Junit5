@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium.lesson8;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,7 +20,7 @@ public class Windows14 extends TestBaseFireFox {
             driver.findElement(By.name("login")).click();
             String expected = "My Store";
             String actuil = driver.getTitle();
-            Assert.assertEquals(expected, actuil);
+            assertEquals(expected, actuil);
         }
 
         @Test

@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium.lesson4;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ import ru.stqa.training.selenium.TestBaseChrome;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AdminScenariy7 extends TestBaseChrome {
 
@@ -22,7 +22,7 @@ public class AdminScenariy7 extends TestBaseChrome {
         String expected = "My Store";
         String actuil = driver.getTitle();
 
-        Assert.assertEquals(expected, actuil);
+        assertEquals(expected, actuil);
     }
 
     @Test

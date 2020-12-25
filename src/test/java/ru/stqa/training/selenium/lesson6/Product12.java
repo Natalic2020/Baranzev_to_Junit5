@@ -1,7 +1,10 @@
 package ru.stqa.training.selenium.lesson6;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -43,7 +46,7 @@ public class Product12 extends TestBaseImplicitlyWait {
         String expected = "My Store";
         String actuil = driver.getTitle();
 
-        Assert.assertEquals(expected, actuil);
+        assertEquals(expected, actuil);
     }
 
     @Test
@@ -59,7 +62,7 @@ public class Product12 extends TestBaseImplicitlyWait {
         List<WebElement> productList = driver.findElements(By.cssSelector("[href^='http://localhost/litecart/admin/?app=catalog&doc=edit_product&category_id=0&product_id=']"));
          boolean hasNewProduct = false;
         hasNewProduct = productList.stream().map(p->p.getText()).anyMatch(NAME::equals);
-        Assert.assertTrue("Do not find created Product ", hasNewProduct);
+        assertTrue( hasNewProduct, "Do not find created Product ");
     }
 
     private void fillInformation() throws InterruptedException {

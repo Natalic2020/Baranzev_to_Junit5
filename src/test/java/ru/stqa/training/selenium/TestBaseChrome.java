@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +21,7 @@ public class TestBaseChrome {
     public WebDriver driver;
     public WebDriverWait wait;
 
-    @Before
+    @BeforeEach
     public void start(){
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
@@ -31,7 +31,7 @@ public class TestBaseChrome {
             return driver.findElements(locator).size() > 0;
     }
 
-    @After
+    @AfterEach
     public void stop(){
         driver.quit();
         driver = null;

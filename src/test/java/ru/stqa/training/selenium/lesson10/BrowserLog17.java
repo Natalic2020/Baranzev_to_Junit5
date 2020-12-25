@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium.lesson10;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.HasCapabilities;
@@ -20,7 +20,7 @@ public class BrowserLog17 extends TestBaseWithListener {
         driver.findElement(By.name("login")).click();
         String expected = "My Store";
         String actuil = driver.getTitle();
-        Assert.assertEquals(expected, actuil);
+        assertEquals(expected, actuil);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class BrowserLog17 extends TestBaseWithListener {
             products = getProducts();
             products.get(i).click();
             driver.manage().logs().get("browser").getAll().forEach(System.out::println);
-            Assert.assertEquals(0, driver.manage().logs().get("browser").getAll().size());
+            assertEquals(0, driver.manage().logs().get("browser").getAll().size());
         }
     }
 

@@ -1,6 +1,6 @@
 package ru.stqa.training.selenium.lesson9;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Platform;

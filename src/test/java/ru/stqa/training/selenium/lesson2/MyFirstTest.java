@@ -1,8 +1,8 @@
 package ru.stqa.training.selenium.lesson2;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +13,7 @@ public class MyFirstTest {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @Before
+    @BeforeEach
     public void start(){
         driver = new ChromeDriver();
          wait = new WebDriverWait(driver, 10);
@@ -24,7 +24,7 @@ public class MyFirstTest {
         driver.get("https://www.germanpersonnel.de/");
     }
 
-    @After
+    @AfterEach
     public void stop(){
         driver.quit();
         driver = null;

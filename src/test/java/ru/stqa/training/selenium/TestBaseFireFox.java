@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,7 +13,7 @@ public class TestBaseFireFox {
     public WebDriver driver;
     public WebDriverWait wait;
 
-    @Before
+    @BeforeEach
     public void start(){
         FirefoxOptions options = new FirefoxOptions().setLegacy(false);
         driver = new FirefoxDriver(options);
@@ -24,7 +24,7 @@ public class TestBaseFireFox {
         return driver.findElements(locator).size() > 0;
     }
 
-    @After
+    @AfterEach
     public void stop(){
         driver.quit();
         driver = null;

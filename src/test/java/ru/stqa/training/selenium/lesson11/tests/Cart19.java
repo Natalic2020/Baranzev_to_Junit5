@@ -1,7 +1,9 @@
 package ru.stqa.training.selenium.lesson11.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 public class Cart19 extends TestBase {
 
@@ -9,8 +11,8 @@ public class Cart19 extends TestBase {
     public  void checkCartTest() throws InterruptedException {
         int firstInCart = app.getCountProductsInCart();
         app.addProductsToCart(3);
-        Assert.assertTrue("Add no 3 Products ", firstInCart + 3 == app.getCountProductsInCart());
+        assertTrue( firstInCart + 3 == app.getCountProductsInCart(), "Add no 3 Products ");
         app.removeAllProductsFromCart();
-        Assert.assertTrue("Did not remove all Products ", 0 == app.getCountProductsInCart());
+        assertTrue( 0 == app.getCountProductsInCart(), "Did not remove all Products ");
     }
 }

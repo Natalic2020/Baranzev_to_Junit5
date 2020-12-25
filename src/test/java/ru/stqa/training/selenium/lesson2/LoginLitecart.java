@@ -1,9 +1,8 @@
 package ru.stqa.training.selenium.lesson2;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +13,16 @@ import ru.stqa.training.selenium.TestBaseIEImplicitly;
 import java.sql.SQLOutput;
 import java.util.concurrent.TimeUnit;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class LoginLitecart extends TestBaseIEImplicitly {
+
+
+
+    @BeforeEach
+    public void setUp() throws Exception {
+
+    }
 
     @Test
     public void loginAdminTest(){
@@ -25,6 +33,6 @@ public class LoginLitecart extends TestBaseIEImplicitly {
         String expected = "My Store";
         String actuil = driver.getTitle();
 
-        Assert.assertEquals(expected, actuil);
+        assertEquals(expected, actuil);
     }
 }

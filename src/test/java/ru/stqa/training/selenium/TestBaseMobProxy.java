@@ -4,8 +4,8 @@ import com.google.common.io.Files;
 import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.client.ClientUtil;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -52,7 +52,7 @@ public class TestBaseMobProxy {  public static ThreadLocal<EventFiringWebDriver>
         }
     }
 
-    @Before
+    @BeforeEach
     public void start(){
 
         BrowserMobProxy proxy = new BrowserMobProxyServer();
@@ -72,7 +72,7 @@ public class TestBaseMobProxy {  public static ThreadLocal<EventFiringWebDriver>
         return driver.findElements(locator).size() > 0;
     }
 
-    @After
+    @AfterEach
     public void stop(){
 //        driver.quit();
         //      driver = null;

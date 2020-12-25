@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium.lesson6;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.training.selenium.TestBaseImplicitlyWait;
@@ -21,7 +21,7 @@ public class Login11 extends TestBaseImplicitlyWait {
     private final static String PHONE = "+4915757612129";
     private final static String PASSWORD = "Natali168";
 
-    @Before public void start1(){
+    @BeforeEach public void start1(){
         EMAIL = "nata" + new Random().nextInt(100) + "@m.ru";
         System.out.println(EMAIL);
     }

@@ -1,8 +1,8 @@
 package ru.stqa.training.selenium.lesson5;
 
 import org.apache.commons.exec.util.StringUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
     public class Price10 extends TestBaseImplicitlyWait {
 //    public class Price10 extends TestBaseFireFoxImplicitly {
@@ -46,9 +46,9 @@ import static org.junit.Assert.assertTrue;
         WebElement campaignPriceContent = driver.findElement(By.className("campaign-price"));
         HashMap<String,String> campaignPriceContentProperties =  receivePriceProperties(campaignPriceContent);
 
-        Assert.assertEquals("Name product on main page  is not like on content page",nameMain, nameContent);
-        Assert.assertEquals("Regular price on main page  is not like on content page", regularPriceMainProperties.get("price"), regularPriceContentProperties.get("price"));
-        Assert.assertEquals("Action price on main page  is not like on content page",campaignPriceMainProperties.get("price"), campaignPriceContentProperties.get("price"));
+        assertEquals("Name product on main page  is not like on content page",nameMain, nameContent);
+        assertEquals("Regular price on main page  is not like on content page", regularPriceMainProperties.get("price"), regularPriceContentProperties.get("price"));
+        assertEquals("Action price on main page  is not like on content page",campaignPriceMainProperties.get("price"), campaignPriceContentProperties.get("price"));
 
         checkPropertie(regularPriceMainProperties, campaignPriceMainProperties);
         checkPropertie(regularPriceContentProperties, campaignPriceContentProperties);
@@ -71,18 +71,18 @@ import static org.junit.Assert.assertTrue;
         return priceProperties;
     }
        private void checkPropertie(HashMap<String,String> regularProperties, HashMap<String,String> campaignProperties){
-           Assert.assertTrue("Action  font-weight price is not bigger then regular ", Integer.valueOf(regularProperties.get("font-weight")) <
-                   Integer.valueOf(campaignProperties.get("font-weight")));
+           assertTrue( Integer.valueOf(regularProperties.get("font-weight")) <
+                   Integer.valueOf(campaignProperties.get("font-weight")), "Action  font-weight price is not bigger then regular ");
            if (!driver.toString().contains("InternetExplorer")){
-               Assert.assertEquals("Regular price is not striked out ","line-through", regularProperties.get("text-decoration-line"));
-               Assert.assertEquals("Action price is  striked out ","none", campaignProperties.get("text-decoration-line"));
+               assertEquals("line-through", regularProperties.get("text-decoration-line"), "Regular price is not striked out ");
+               assertEquals("none", campaignProperties.get("text-decoration-line"), "Action price is  striked out ");
            }
 
-           Assert.assertEquals("Action  font price is not bigger then regular ",true, resieveFontSize(campaignProperties) > resieveFontSize(regularProperties));
+           assertTrue( resieveFontSize(campaignProperties) > resieveFontSize(regularProperties),"Action  font price is not bigger then regular ");
            HashMap<String, Integer> regularRGB = decomposeRGB( regularProperties);
-           Assert.assertEquals("Regular color price is not grey. It have to be red = blue = green ",true, regularRGB.get("red") == regularRGB.get("green") && regularRGB.get("blue") == regularRGB.get("green"));
+           assertTrue( regularRGB.get("red") == regularRGB.get("green") && regularRGB.get("blue") == regularRGB.get("green"), "Regular color price is not grey. It have to be red = blue = green ");
            HashMap<String, Integer> campaignRGB = decomposeRGB( campaignProperties);
-           Assert.assertEquals("Action color price is not red. It have  blue = green = 0 ",true, 0 == campaignRGB.get("green") && campaignRGB.get("blue") == 0);
+           assertTrue( 0 == campaignRGB.get("green") && campaignRGB.get("blue") == 0, "Action color price is not red. It have  blue = green = 0 ");
        }
 
        private Double resieveFontSize(HashMap<String,String> properties){

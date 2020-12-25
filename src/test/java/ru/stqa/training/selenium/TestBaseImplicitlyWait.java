@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +15,7 @@ public class TestBaseImplicitlyWait {
     public WebDriver driver;
     public WebDriverWait wait;
 
-    @Before
+    @BeforeEach
     public void start(){
          driver = new ChromeDriver();
          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -25,7 +25,7 @@ public class TestBaseImplicitlyWait {
         return driver.findElements(locator).size() > 0;
     }
 
-    @After
+    @AfterEach
     public void stop(){
         driver.quit();
         driver = null;

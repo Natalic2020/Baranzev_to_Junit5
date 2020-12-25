@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium.lesson5;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import ru.stqa.training.selenium.TestBaseImplicitlyWait;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SortCountry9 extends TestBaseImplicitlyWait {
 
@@ -22,7 +22,7 @@ public class SortCountry9 extends TestBaseImplicitlyWait {
         String expected = "My Store";
         String actuil = driver.getTitle();
 
-        Assert.assertEquals(expected, actuil);
+        assertEquals(expected, actuil);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class SortCountry9 extends TestBaseImplicitlyWait {
             }
         });
         List<String> countryNameSortList = countryNameList.stream().sorted().collect(Collectors.toList());
-        Assert.assertEquals(countryNameSortList, countryNameList);
+        assertEquals(countryNameSortList, countryNameList);
 
         checkZone(hrefCountryWithZones);
     }
@@ -55,7 +55,7 @@ public class SortCountry9 extends TestBaseImplicitlyWait {
         hrefCountryWithZones.forEach(url -> {
             List<String> zoneNameList = fillZone(url);
             List<String> zoneNameSortList = zoneNameList.stream().sorted().collect(Collectors.toList());
-            Assert.assertEquals(zoneNameSortList, zoneNameList);
+            assertEquals(zoneNameSortList, zoneNameList);
         } );
     }
 
@@ -106,7 +106,7 @@ public class SortCountry9 extends TestBaseImplicitlyWait {
                 }
             } );
             List<String> zoneNameSortList = zonesNameList.stream().sorted().collect(Collectors.toList());
-            Assert.assertEquals(zoneNameSortList, zonesNameList);
+            assertEquals(zoneNameSortList, zonesNameList);
         });
     }
 

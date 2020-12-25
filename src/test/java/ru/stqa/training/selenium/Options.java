@@ -1,8 +1,8 @@
 package ru.stqa.training.selenium;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Options {private WebDriver driver;
     private WebDriverWait wait;
 
-    @Before
+    @BeforeEach
     public void start(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-fullscreen");
@@ -27,7 +27,7 @@ public class Options {private WebDriver driver;
         //   driver.get("https://www.germanpersonnel.de/");
     }
 
-    @After
+    @AfterEach
     public void stop(){
         driver.quit();
         driver = null;

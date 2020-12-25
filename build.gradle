@@ -10,7 +10,10 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.0'
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     compile ('net.lightbody.bmp:browsermob-core:2.1.5') {
         exclude module : 'selenium'
